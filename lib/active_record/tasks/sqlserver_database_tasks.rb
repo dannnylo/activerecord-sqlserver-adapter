@@ -50,7 +50,7 @@ module ActiveRecord
 
       def structure_dump(filename)
         command = [
-          "defncopy",
+          "C:/Ruby200-x64/lib/ruby/gems/2.0.0/gems/tiny_tds-0.9.5.beta.11-x64-mingw32/exe/defncopy.EXE",
           "-S #{Shellwords.escape(configuration['host'])}",
           "-D #{Shellwords.escape(configuration['database'])}",
           "-U #{Shellwords.escape(configuration['username'])}",
