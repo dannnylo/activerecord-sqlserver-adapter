@@ -37,6 +37,12 @@ ActiveRecord::Schema.define do
 
   # Edge Cases
 
+  create_table 'sst_bookings', force: true do |t|
+    t.string :name
+    t.datetime2 :created_at, null: false
+    t.datetime2 :updated_at, null: false
+  end
+
   create_table 'sst_uuids', force: true, id: :uuid do |t|
     t.string :name
     t.uuid   :other_uuid, default: 'NEWID()'
@@ -118,6 +124,12 @@ ActiveRecord::Schema.define do
     t.date   :date
   end
   execute "sp_bindefault 'sst_getdateobject', 'sst_defaultobjects.date'"
+
+  execute "DROP PROCEDURE my_getutcdate" rescue nil
+  execute <<-SQL
+    CREATE PROCEDURE my_getutcdate AS
+    SELECT GETUTCDATE() utcdate
+  SQL
 
   # Constraints
 

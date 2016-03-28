@@ -1,9 +1,30 @@
+## v4.2.10
+
+#### Fixed
+
+* Ensure small datetime/datetime2 fractionals are properly quoted. Fixes #457.
+
+
+## v4.2.9
+
+#### Fixed
+
+* Conform to new data_sources interfaces. See: https://git.io/va4Fp
+* The `primary_key` method falls back to Identity columns. Not the other way around. Fixes #454. Thanks @marceloeloelo
+* Ensure that `execute_procedure` returns proper time zones. Fixes #449
+
+#### Changed
+
+* Run tests with verbose false.
+
 
 ## v4.2.8
 
 #### Fixed
 
 * Azure-Friendly Disable Referential Integrity. No more `sp_MSforeachtable` usage. Fixes #421
+* Azure-Friendly DB create/drop. Fixes #442
+  - Create allows edition options like: MAXSIZE, EDITION, and SERVICE_OBJECTIVE.
 
 
 ## v4.2.7
